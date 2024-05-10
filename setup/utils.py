@@ -1,0 +1,1 @@
+to_bool = lambda non_bool: non_bool == 'yes'
