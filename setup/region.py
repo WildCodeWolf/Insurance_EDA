@@ -6,6 +6,6 @@ class Region(str, Enum):
     se = 'southeast'
     nw = 'northwest'
     ne = 'northeast'
-
-    def __repr__(self):
+    
+    def __str__(self):
         return self.value

@@ -12,6 +12,6 @@ class Col(str, Enum):
     smoker   = DF.columns[4]
     region   = DF.columns[5]
     charges  = DF.columns[6]
-
-    def __repr__(self):
+    
+    def __str__(self):
         return self.value

@@ -5,7 +5,7 @@ class Sex(int, Enum):
     f = 1
     m = 2
 
-    def __repr__(self):
+    def __str__(self):
         return 'female' if self == 1 else 'male'
 
     @staticmethod
