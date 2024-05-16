@@ -2,7 +2,8 @@ import seaborn as sns
 
 from .col import Col, DF
 from .children import Children
-from .data import df, df_male, df_female, df_low
+from .coefficient import A, B0, B1, STEP
+from .data import df, df_low
 from .palette import Palette
 from .region import Region
 from .sex import Sex
@@ -12,6 +13,7 @@ sns.set(rc={'figure.facecolor':'#eee'})    # to produce consistently looking plo
 
 __all__ = [
     'children',
+    'coefficient',
     'col',
     'data',
     'linear_regression_result',

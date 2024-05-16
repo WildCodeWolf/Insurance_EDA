@@ -1,7 +1,9 @@
+import numpy as np
 from scipy.stats import t
 from scipy.stats._stats_mstats_common import LinregressResult
 from sklearn.linear_model import LinearRegression
 from statsmodels.regression.linear_model import RegressionResultsWrapper
+import statsmodels.api as sm
 
 class LinearRegressionResult:
     """A convenience class to store and access linear regression
@@ -88,4 +90,8 @@ class LinearRegressionResult:
                 return self.result.rsquared
 
     def predict(self, *args):
-        return self.result.predict(args)
+        match self.result:
+            case LinearRegression() | LinregressResult():
+                return self.result.predict(args)
+            case RegressionResultsWrapper():
+                return self.result.predict(sm.add_constant(*args))
