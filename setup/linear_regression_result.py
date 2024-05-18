@@ -3,13 +3,12 @@
 :Date: Sat May 18 10:58:16 CEST 2024
 """
 import numpy as np
+import pandas as pd
 from scipy.stats import t
 from scipy.stats._stats_mstats_common import LinregressResult
 from sklearn.linear_model import LinearRegression
 from statsmodels.regression.linear_model import RegressionResultsWrapper
 import statsmodels.api as sm
-
-from .data import df_low
 
 class LinearRegressionResult:
     """A convenience class to store and access linear regression
@@ -46,6 +45,7 @@ class LinearRegressionResult:
 
         match result:
             case LinregressResult():
+                df_low = pd.read_csv('data/preprocessed.csv')
                 tinv = lambda p, df: abs(t.ppf(p/2, df))
                 ts = tinv(.05, len(df_low) - 2)
                 self._intercept_lower = result.intercept - ts * result.intercept_stderr
@@ -58,7 +58,7 @@ class LinearRegressionResult:
                 self._slope_lower = result.conf_int_el(1)[0]
                 self._slope_upper = result.conf_int_el(1)[1]
     
-    @property(doc='')
+    @property
     def intercept(self) -> float:
         """The intercept."""
         match self.result:
@@ -69,7 +69,7 @@ class LinearRegressionResult:
             case RegressionResultsWrapper():
                 return self.result.params.iloc[0]
     
-    @property(doc='')
+    @property
     def intercept_lower(self) -> float | None:
         """The lower confidence margin for the intercept (95%)."""
         match self.result:
@@ -78,7 +78,7 @@ class LinearRegressionResult:
             case LinearRegression():
                 return None
     
-    @property(doc='')
+    @property
     def intercept_upper(self) -> float | None:
         """The upper confidence margin for the intercept (95%)."""
         match self.result:
@@ -87,7 +87,7 @@ class LinearRegressionResult:
             case LinearRegression():
                 return None
     
-    @property(doc='')
+    @property
     def slope(self) -> float:
         """The slope."""
         match self.result:
@@ -98,7 +98,7 @@ class LinearRegressionResult:
             case RegressionResultsWrapper():
                 return self.result.params.iloc[1]
     
-    @property(doc='')
+    @property
     def slope_lower(self) -> float | None:
         """The lower confidence margin for the slope (95%)."""
         match self.result:
@@ -107,7 +107,7 @@ class LinearRegressionResult:
             case LinearRegression():
                 return None
     
-    @property(doc='')
+    @property
     def slope_upper(self) -> float | None:
         """The upper confidence margin for the slope (95%)."""
         match self.result:
@@ -116,7 +116,7 @@ class LinearRegressionResult:
             case LinearRegression():
                 return None
     
-    @property(doc='')
+    @property
     def score(self) -> float:
         """The score."""
         match self.result:

@@ -30,22 +30,22 @@ class Region(str, Enum):
     nw = 'northwest'
     ne = 'northeast'
 
-    @property(doc='')
+    @property
     def is_north(self) -> bool:
         """`True` if `self` is `northeast` or `northwest`.  `False` otherwise."""
         return self == self.ne or self == self.nw
     
-    @property(doc='')
+    @property
     def is_east(self) -> bool:
         """`True` if `self` is `northeast` or `southeast`.  `False` otherwise.`"""
         return self == self.ne or self == self.se
     
-    @property(doc='')
+    @property
     def is_south(self) -> bool:
         """`True` if `self` is `southeast` or `southwest`.  `False` otherwise."""
         return self == self.se or self == self.sw
     
-    @property(doc='')
+    @property
     def is_west(self) -> bool:
         """`True` if `self` is `northwest` or `southwest`.  `False` otherwise."""
         return self == self.nw or self == self.sw
