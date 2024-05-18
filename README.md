@@ -86,14 +86,14 @@ which tackles the final topic covered in this repository.
 
 ## Cloning the Repo
 
-```zsh
-git clone <SSH-Key>
-cd Insurance_Exercise
+```sh
+git clone git@github.com:WildCodeWolf/Insurance_EDA.git
+cd Insurance_EDA
 ```
 
 ## Setting Up Your Virtual Environment
 
-```zsh
+```sh
 pyenv local 3.11.3
 python -m venv .venv
 source ./.venv/bin/activate
@@ -101,14 +101,14 @@ source ./.venv/bin/activate
 
 ### Checking and Fixing Your Python Version
 
-```zsh
+```sh
 python --version
 ```
 
 If the output differs from your local version (3.11.3),
 then run the following line and check again:
 
-```zsh
+```sh
 eval "$(pyenv init -)"
 ```
 
@@ -117,7 +117,7 @@ correct version.
 
 ## Installing the Python Packages
 
-```zsh
+```sh
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
