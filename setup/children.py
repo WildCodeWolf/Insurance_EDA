@@ -1,3 +1,8 @@
+"""Contains the `Children` auxiliary class.
+:Author: WildCodeWolf
+:Date: Sat May 18 10:58:16 CEST 2024
+"""
+
 class Children(int):
     """Extends integers used to count the number of children with categorical capabilities."""
     categories = ['no children', 'less than 3 children', '3 or more children']

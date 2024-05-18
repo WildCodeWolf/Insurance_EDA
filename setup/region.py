@@ -1,3 +1,7 @@
+"""Contains the `Region` auxiliary class.
+:Author: WildCodeWolf
+:Date: Sat May 18 10:58:16 CEST 2024
+"""
 from enum import Enum
 
 class Region(str, Enum):

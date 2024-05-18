@@ -1,3 +1,7 @@
+"""Contains the `Palette` auxiliary class.
+:Author: WildCodeWolf
+:Date: Sat May 18 10:58:16 CEST 2024
+"""
 from enum import Enum
 
 class Palette(str, Enum):
